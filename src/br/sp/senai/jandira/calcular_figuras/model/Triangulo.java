@@ -30,24 +30,46 @@ public class Triangulo {
 		return ladoDireito;
 	}
 	
-//	public void verificarTriangulo() {
-//		if(base < (ladoEsquerdo + ladoDireito) && ladoEsquerdo < (base + ladoDireito) && ladoDireito < (base + ladoEsquerdo)) {
-//			if (base == ladoEsquerdo || base == ladoDireito || ladoEsquerdo == ladoDireito) {
-//				System.out.println("Triangulo ISÓSCELES");
-//
-//			} else if (base != ladoEsquerdo && ladoEsquerdo != ladoDireito) {
-//				System.out.println("Triangulo ESCALENO");
-//
-//			} else if (base == ladoEsquerdo && ladoEsquerdo == ladoDireito) {
-//				System.out.println("Triangulo EQUILATERO");
-//			}
-//		} else {
-//			System.out.println("Os valores digitados não formam um triângulo!");
-//		}
-//	}
+	public void verificarTriangulo() {
+		if(base < (ladoEsquerdo + ladoDireito) && ladoEsquerdo < (base + ladoDireito) && ladoDireito < (base + ladoEsquerdo)) {
+			if (base == ladoEsquerdo || base == ladoDireito || ladoEsquerdo == ladoDireito) {
+				System.out.println("Triangulo ISÓSCELES");
+
+			} else if (base != ladoEsquerdo && ladoEsquerdo != ladoDireito) {
+				System.out.println("Triangulo ESCALENO");
+
+			} else if (base == ladoEsquerdo && ladoEsquerdo == ladoDireito) {
+				System.out.println("Triangulo EQUILATERO");
+			}
+		} else {
+			System.out.println("Os valores digitados não formam um triângulo!");
+		}
+	}
 	
 	public double calcularAreaTriangulo() {
-		double area = (base * ladoEsquerdo) / 2;
+		
+		double area = 0;
+		double semiperimetro = 0;
+		
+		if(base < (ladoEsquerdo + ladoDireito) && ladoEsquerdo < (base + ladoDireito) && ladoDireito < (base + ladoEsquerdo)) {
+			if (base == ladoEsquerdo && ladoEsquerdo == ladoDireito) {
+				System.out.println("Triangulo EQUILATERO");
+				area = (base * ladoEsquerdo) / 2;
+
+			} else if (base != ladoEsquerdo && ladoEsquerdo != ladoDireito) {
+				System.out.println("Triangulo ESCALENO");
+				semiperimetro = (base + ladoEsquerdo + ladoDireito) / 2;
+				area = Math.sqrt(semiperimetro * (semiperimetro - base) * (semiperimetro - ladoEsquerdo) * (semiperimetro - ladoDireito));
+
+			} else if (base == ladoEsquerdo || base == ladoDireito || ladoEsquerdo == ladoDireito) {
+				System.out.println("Triangulo ISÓSCELES");
+				semiperimetro = (base + ladoEsquerdo + ladoDireito) / 2;
+				area = Math.sqrt(semiperimetro * (semiperimetro - base) * (semiperimetro - ladoEsquerdo) * (semiperimetro - ladoDireito));
+			}
+		} else {
+			System.out.println("Os valores digitados não formam um triângulo!");
+		}
+		
 		return area;
 	}
 	
