@@ -20,10 +20,24 @@ public class Menu {
 		
 		int opcao = leitor.nextInt();
 		
-		if(opcao == 1) {
+		switch (opcao) {
+		case 1:
 			CalculoDeFiguras.calcularQuadrado();
-		} else {
-			System.out.println("Opção inválida!");
+			break;
+		case 2:
+			CalculoDeFiguras.calcularRetangulo();
+			break;
+		case 3:
+			CalculoDeFiguras.calcularTrapezio();
+			break;
+		case 4:
+			CalculoDeFiguras.calcularTriangulo();
+			break;
+		case 5:
+			CalculoDeFiguras.calcularCircunferencia();
+			break;
+		default:
+			System.out.println("Nenhuma opção selecionada / opção inválida!");
 		}
 		
 		leitor.close();
