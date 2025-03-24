@@ -27,7 +27,7 @@ public class Retangulo {
 	}
 	
 	public double calcularPerimetroRetangulo() {
-		double perimetro = (base * 2) + (altura *2);
+		double perimetro = (base * 2) + (altura * 2);
 		return perimetro;	
 	}
 	
